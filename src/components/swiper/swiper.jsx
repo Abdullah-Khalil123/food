@@ -5,8 +5,18 @@ import { Autoplay,Pagination } from 'swiper/modules';
 import './swiperr.css'
 import Image from 'next/image';
 import nextConfig from '../../../next.config';
+import { useEffect, useState } from 'react';
 
 export const Swiperr = () => {
+  const [isMobile,setMobileStatus]=useState(false);
+  useEffect(()=>{
+    const handleResize=()=>{
+      setMobileStatus(window.innerWidth<600)
+    }
+    handleResize()
+    window.addEventListener("resize",handleResize)
+    return ()=>window.removeEventListener("resize",handleResize)
+  },[])
   return (
     <>
     <div className="swiperr-container">
@@ -26,19 +36,24 @@ export const Swiperr = () => {
         <SwiperSlide><Image src={`${nextConfig.basePath}/images/slide2.webp`} width={500} height={500} alt='Slide 2 Image'/></SwiperSlide>
         <SwiperSlide><Image src={`${nextConfig.basePath}/images/slide3.webp`} width={500} height={500} alt='Slide 3 Image'/></SwiperSlide>
       </Swiper>
-      <div className="swiperr-extra">
-        <div className="swiperrFirst">
-          <Image className='mb' src={`${nextConfig.basePath}/images/phone.svg`} alt='' width={300} height={300}/>
-          <div>03005447704</div>
-        </div>
-        <div className="swiperrFirst">
-          <Image src={`${nextConfig.basePath}/images/clock.svg`} alt='' width={300} height={300}/>
-          <div>00:00 AM - 02:00 AM</div>
-          <div>02:00 AM - 11:59 PM</div>
-          <Image className='mb' src={`${nextConfig.basePath}/images/downHead.svg`} alt='' width={300} height={300}/>
-        </div>
-      </div>
+      {!isMobile && <SwiperExtra/>}
     </div>
     </>
   )
 }
+
+    function SwiperExtra({}) {
+      return (<div className="swiperr-extra">
+        <div className="swiperrFirst">
+          <Image className='mb' src={`${nextConfig.basePath}/images/phone.svg`} alt='' width={300} height={300} />
+          <div>03005447704</div>
+        </div>
+        <div className="swiperrFirst">
+          <Image src={`${nextConfig.basePath}/images/clock.svg`} alt='' width={300} height={300} />
+          <div>00:00 AM - 02:00 AM</div>
+          <div>02:00 AM - 11:59 PM</div>
+          <Image className='mb' src={`${nextConfig.basePath}/images/downHead.svg`} alt='' width={300} height={300} />
+        </div>
+      </div>);
+    }
+  

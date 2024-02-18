@@ -3,6 +3,11 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+.navBar::-webkit-scrollbar{
+    display: none;
 }
 .navBarUnit{
     padding: 15px 30px;
@@ -18,4 +23,14 @@
 .navBarUnitActive{
     font-weight: 550;
     background-color: #ffba00;
+}
+
+@media (max-width:600px) {
+    .navBar{
+        justify-content: start;
+        padding: 0 5px;
+    }
+    .navBarUnit{
+        min-width: max-content;
+    }
 }

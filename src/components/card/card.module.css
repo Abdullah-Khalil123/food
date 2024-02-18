@@ -51,3 +51,31 @@
 .addToCart:hover{
     background-color: #dd0130;
 }
+
+@media (max-width:600px) {
+    .card{
+        min-height: 355px;
+        max-height: 355px;
+        min-width: 180px;
+        max-width: 182px;
+        box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        padding: 10px;
+        padding-bottom: 25px;
+        font-size: 14px;
+    }
+    .addToCart{
+        background-color: #ff0238;
+        font-size: 14px;
+        padding: 15px 20px;
+        border-radius: 20px;
+        color: white;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s linear;
+    }
+}
