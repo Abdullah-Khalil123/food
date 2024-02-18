@@ -1,0 +1,53 @@
+.card{
+    min-height: 400px;
+    max-height: 450px;
+    min-width: 250px;
+    max-width: 285px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 10px;
+    padding-bottom: 25px;
+    font-size: 14px;
+}
+.cardImage{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.cardImage img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center center;
+    cursor: pointer;
+}
+.cardName{
+    font-weight: 550;
+    cursor: pointer;
+}
+.cardSectionTwo{
+    width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.cardPrice{
+    font-weight: 600;
+}
+.addToCart{
+    background-color: #ff0238;
+    font-size: 14px;
+    padding: 15px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+.addToCart:hover{
+    background-color: #dd0130;
+}

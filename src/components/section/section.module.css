@@ -1,0 +1,22 @@
+.section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cardContainer{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+.sectionHeading{
+    font-weight: 500;
+    font-size: 24px;
+    width: 80%;
+    text-align: start;
+    padding: 50px 0px;
+}

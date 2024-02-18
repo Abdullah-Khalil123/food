@@ -1,0 +1,148 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    z-index:10;
+}
+.timingHeader{
+    height: 21px;
+    color: #e6940a;
+    background-color: #082e5a;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.headerRest{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    width: 100%;
+    overflow: hidden;
+}
+.headerFirst{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 25%;
+    gap: 15px;
+}
+.headerSecond{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.headerThird{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.headerLocation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.headerLocation img{
+    width: 24px;
+    height: 24px;
+}
+.headerLocationDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.headerCurrentLocation{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.hCLtext{
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+.hCLimg{
+    width: 10px;
+    height:10px;
+    cursor: pointer;
+}
+.headerNearestBranch{
+    font-size: 12px;
+
+}  
+.headerSecond img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+} 
+.headerOptions{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    z-index: 2;
+    padding-right:15px;
+    height: 100%;
+}
+
+.headerOptions img{
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+.headerBag{
+    position: relative;
+}
+.headerBagAbsolute{
+    position: absolute;
+    top: -3px;
+    right: -5px;
+    background-color: red;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+.headerSearchBar{
+    z-index: 1;
+    flex: 1;
+    transition: all 0.2s linear;
+}
+.headerSearchBar input{
+    width: 100%;
+    padding: 10px;
+    padding-left: 10px;
+    border-radius:7px;
+    border: 1px solid black;
+}
+.headerSearchBar input::placeholder{
+    color: gray;
+    font-weight: 400;
+}
+.headerSearchBarOpen{
+    transform: translateX(0);
+}
+.headerSearchBarClosed{
+    transform: translateX(100%);
+}
