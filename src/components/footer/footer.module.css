@@ -5,6 +5,7 @@
     display:flex;
     align-items: center;
     font-size: 14px;
+    width: 100%;
 }
 .footerFirst{
     width: 50%;
@@ -12,4 +13,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+}
+@media (max-width:550px) {
+    .footer{
+        flex-direction: column;
+        height: 80px;
+        padding: 10px 0px;
+    }
+    .footerFirst{
+        width: 100%;
+        height: 50%;
+    }
 }
