@@ -7,16 +7,10 @@ import { NavBar } from "@/components/navbar/navbar";
 import { sections } from "@/components/hardCodeMenuItems";
 import { useEffect, useState } from "react";
 export default function Home() {
-
+  
+  const [activeUnit, setActiveUnit] = useState({previous:'',current:'All'});
   const [isSearchOpen,setSearchStatus]=useState(false)
-  const [activeUnit, setActiveUnit] = useState('All');
   const [isMobile,setMobileStatus]=useState(false);
-
-
-  const handleClick = (unit) => {
-    setActiveUnit(unit);
-  };
-
   useEffect(()=>{
     window.scrollTo({
       top:0,
@@ -29,6 +23,35 @@ export default function Home() {
     window.addEventListener("resize",handleResize)
     return ()=>window.removeEventListener("resize",handleResize)
   },[])
+  const handleClick = (unit) => {
+    setActiveUnit(prevState => ({
+      previous: prevState.current,
+      current: unit
+    }));
+    if(unit=='All'){
+      const container = document.getElementById('Burger');
+      if(container){
+        window.scrollTo({
+          top:container.offsetTop - 177.6*2,
+          behavior:'smooth',
+        })
+      }
+    }
+    else{
+      const container = document.getElementById(unit);
+      if (container) {
+        window.scrollTo({
+          top:container.offsetTop - 177.6,
+          behavior:'smooth'
+        })
+      }
+    } 
+  };
+
+  useEffect(()=>{
+    console.log("Active: "+activeUnit.current+" Previous: "+activeUnit.previous)
+  },[activeUnit.current])
+
   return (
     <>
     <Header 
@@ -37,15 +60,14 @@ export default function Home() {
     />
     <Swiperr isMobile={isMobile}/>
     <NavBar 
-      activeUnit={activeUnit} 
+      activeUnit={activeUnit}
       handleClick={handleClick} 
-      sections={sections} 
-      setActiveUnit={setActiveUnit}
+      sections={sections}
+      setActiveUnit={setActiveUnit} 
     />
-    <Main 
-      sections={sections} 
-      setActiveUnit={setActiveUnit}
-      isMobile={isMobile}
+    <Main
+      sections={sections}
+      setActiveUnit={setActiveUnit} 
     />
     <Footer/>
     </>

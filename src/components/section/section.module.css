@@ -21,6 +21,10 @@
     padding: 50px 0px;
 }
 
+.section:nth-child(1) .sectionHeading{
+    padding-top: 0px;
+}
+
 @media (max-width:600px) {
     .cardContainer{
         width: 98%;

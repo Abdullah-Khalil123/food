@@ -4,7 +4,7 @@ export const Footer = () => {
     <>
     <footer className={styles.footer}>
         <div className={styles.footerFirst}>© 2024 Restaurant Name.</div>
-        <div className={styles.footerFirst}>Powered HorizonWebWorks.com</div>
+        <div className={styles.footerFirst}>Powered By HorizonWebWorks.com</div>
     </footer>
     </>
   )
