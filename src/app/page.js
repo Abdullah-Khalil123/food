@@ -61,6 +61,7 @@ export default function Home() {
       handleClick={handleClick} 
       sections={sections}
       setActiveUnit={setActiveUnit} 
+      isMobile={isMobile}
     />
     <Main
       sections={sections}

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import styles from './navbar.module.css';
-export const NavBar = ({activeUnit,handleClick,sections,setActiveUnit}) => {
+export const NavBar = ({activeUnit,handleClick,sections,setActiveUnit,isMobile}) => {
   const navRef = useRef(null);
   useEffect(()=>{
     const handleScroll = () =>{
@@ -15,7 +15,12 @@ export const NavBar = ({activeUnit,handleClick,sections,setActiveUnit}) => {
     return () => window.removeEventListener("scroll",handleScroll);
   },[])
   return (
-    <div className={styles.navBar} id='navbar' ref={navRef}>
+    <div
+      style={{top:isMobile?`167px`:`90px`}} 
+      className={styles.navBar} 
+      id='navbar' 
+      ref={navRef}
+    >
       <div 
         className={`${styles.navBarUnit} ${activeUnit.current === 'All' ? styles.navBarUnitActive : ''}`} 
         onClick={() => handleClick('All')}
