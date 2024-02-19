@@ -12,6 +12,9 @@ export const Section = ({section,setActiveUnit}) => {
       if(scrollPosition>= sectionTop && scrollPosition < sectionBottom){
         setActiveUnit(section.title)
       }
+      if(window.scrollY==0 && window.innerWidth<600){
+        setActiveUnit('All')
+      }
 
       // const sectionHeight = sectionRef.current.offsetHeight/2;
       // const half = sectionTop + sectionHeight

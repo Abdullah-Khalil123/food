@@ -10,6 +10,8 @@ export default function Home() {
 
   const [isSearchOpen,setSearchStatus]=useState(false)
   const [activeUnit, setActiveUnit] = useState('All');
+  const [isMobile,setMobileStatus]=useState(false);
+
 
   const handleClick = (unit) => {
     setActiveUnit(unit);
@@ -20,15 +22,20 @@ export default function Home() {
       top:0,
       behavior:"smooth",
     })
+    const handleResize=()=>{
+      setMobileStatus(window.innerWidth<600)
+    }
+    handleResize()
+    window.addEventListener("resize",handleResize)
+    return ()=>window.removeEventListener("resize",handleResize)
   },[])
-
   return (
     <>
     <Header 
       isSearchOpen={isSearchOpen} 
       setSearchStatus={setSearchStatus}
     />
-    <Swiperr/>
+    <Swiperr isMobile={isMobile}/>
     <NavBar 
       activeUnit={activeUnit} 
       handleClick={handleClick} 
@@ -38,6 +45,7 @@ export default function Home() {
     <Main 
       sections={sections} 
       setActiveUnit={setActiveUnit}
+      isMobile={isMobile}
     />
     <Footer/>
     </>

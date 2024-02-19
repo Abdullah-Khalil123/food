@@ -5,18 +5,8 @@ import { Autoplay,Pagination } from 'swiper/modules';
 import './swiperr.css'
 import Image from 'next/image';
 import nextConfig from '../../../next.config';
-import { useEffect, useState } from 'react';
 
-export const Swiperr = () => {
-  const [isMobile,setMobileStatus]=useState(false);
-  useEffect(()=>{
-    const handleResize=()=>{
-      setMobileStatus(window.innerWidth<600)
-    }
-    handleResize()
-    window.addEventListener("resize",handleResize)
-    return ()=>window.removeEventListener("resize",handleResize)
-  },[])
+export const Swiperr = ({isMobile}) => {
   return (
     <>
     <div className="swiperr-container">

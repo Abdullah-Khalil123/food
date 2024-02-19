@@ -24,6 +24,7 @@
 @media (max-width:600px) {
     .cardContainer{
         width: 98%;
+        gap: 12px;
     }
     .sectionHeading{
         padding: 35px 0px;
