@@ -24,10 +24,6 @@ export default function Home() {
     return ()=>window.removeEventListener("resize",handleResize)
   },[])
   const handleClick = (unit) => {
-    setActiveUnit(prevState => ({
-      previous: prevState.current,
-      current: unit
-    }));
     if(unit=='All'){
       const container = document.getElementById('Burger');
       if(container){
@@ -57,6 +53,7 @@ export default function Home() {
     <Header 
       isSearchOpen={isSearchOpen} 
       setSearchStatus={setSearchStatus}
+      isMobile={isMobile}
     />
     <Swiperr isMobile={isMobile}/>
     <NavBar 

@@ -4,6 +4,12 @@
     flex-direction: column;
     margin-top:90px;
 }
+.swiperr-container-mobile{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top:176px;
+}
 .swiperr-extra{
     width: 100%;
     height: 51px;

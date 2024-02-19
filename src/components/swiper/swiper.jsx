@@ -9,7 +9,7 @@ import nextConfig from '../../../next.config';
 export const Swiperr = ({isMobile}) => {
   return (
     <>
-    <div className="swiperr-container">
+    <div className={isMobile?`swiperr-container-mobile`:`swiperr-container`}>
       <Swiper 
         speed={1500} 
         autoplay={{

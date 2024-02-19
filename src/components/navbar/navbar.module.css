@@ -14,6 +14,7 @@
     padding-bottom: 10px;
     background-color: white;
     width: 100%;
+    color: black;
 }
 .navBar::-webkit-scrollbar{
     display: none;
@@ -28,6 +29,7 @@
     font-size: 15px;
     font-weight: 100;
     cursor: pointer;
+    min-width: max-content;
 }
 .navBarUnitActive{
     font-weight: 550;
@@ -40,6 +42,7 @@
         padding: 20px 5px;
     }
     .navBarUnit{
-        min-width: max-content;
+        padding: 14px 28px;
+        font-size: 14px;
     }
 }
