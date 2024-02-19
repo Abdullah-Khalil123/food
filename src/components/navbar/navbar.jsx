@@ -1,51 +1,38 @@
-import React, { useState } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './navbar.module.css';
-
-export const NavBar = () => {
-  const [activeUnit, setActiveUnit] = useState('All');
-
-  const handleClick = (unit) => {
-    setActiveUnit(unit);
-  };
-
+export const NavBar = ({activeUnit,handleClick,sections,setActiveUnit}) => {
+  const navBarRef = useRef(null)
+  useEffect(()=>{
+    const handleScroll=()=>{
+      const sectionTop = navBarRef.current.offsetTop+177.6;
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const sectionBottom = sectionTop + navBarRef.current.offsetHeight
+      if(scrollPosition>= sectionTop && scrollPosition < sectionBottom){
+        setActiveUnit('All')
+      }
+    }
+    window.addEventListener("scroll",handleScroll)
+    return () => window.removeEventListener("scroll",handleScroll)
+  })
   return (
-    <div className={styles.navBar}>
+    <div className={styles.navBar} ref={navBarRef}>
       <div
         className={`${styles.navBarUnit} ${activeUnit === 'All' ? styles.navBarUnitActive : ''}`}
         onClick={() => handleClick('All')}
       >
         All
       </div>
-      <div
-        className={`${styles.navBarUnit} ${activeUnit === 'Burger' ? styles.navBarUnitActive : ''}`}
-        onClick={() => handleClick('Burger')}
-      >
-        Burger
-      </div>
-      <div
-        className={`${styles.navBarUnit} ${activeUnit === 'Fries' ? styles.navBarUnitActive : ''}`}
-        onClick={() => handleClick('Fries')}
-      >
-        Fries
-      </div>
-      <div
-        className={`${styles.navBarUnit} ${activeUnit === 'Tortilla Wrap' ? styles.navBarUnitActive : ''}`}
-        onClick={() => handleClick('Tortilla Wrap')}
-      >
-        Tortilla Wrap
-      </div>
-      <div
-        className={`${styles.navBarUnit} ${activeUnit === 'Tune It Up' ? styles.navBarUnitActive : ''}`}
-        onClick={() => handleClick('Tune It Up')}
-      >
-        Tune It Up
-      </div>
-      <div
-        className={`${styles.navBarUnit} ${activeUnit === 'Drinks' ? styles.navBarUnitActive : ''}`}
-        onClick={() => handleClick('Drinks')}
-      >
-        Drinks
-      </div>
+      {sections.map((section,index)=>{
+        return(
+          <div
+            key={index}
+            className={`${styles.navBarUnit} ${activeUnit === section.title ? styles.navBarUnitActive : ''}`}
+            onClick={() => handleClick(section.title)}
+          >
+            {section.title}
+          </div>
+        )
+      })}
     </div>
   );
 };
