@@ -160,7 +160,6 @@
 .headerMobileSecond{
     height: 100%;
     height: 76px;
-    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -178,7 +177,7 @@
     height: 50px;
     padding-left: 32px;
     border-radius: 100px;
-    border: 1px solid black;
+    border: 1px solid gray;
 }
 .headerMobileRelative img{
     width: 24px;
