@@ -6,7 +6,11 @@ export const Main = ({sections,setActiveUnit}) => {
     <main className={styles.main}>
       {sections.map((section,index)=>{
         return(
-          <Section key={index} section={section} setActiveUnit={setActiveUnit}/>
+          <Section 
+            key={index} 
+            section={section} 
+            setActiveUnit={setActiveUnit}
+          />
         )
       })}
     </main>

@@ -29,6 +29,8 @@
     max-width: 1280px;
     width: 100%;
     overflow: hidden;
+    min-height: 69px;
+    max-height: 69px;
 }
 .headerFirst{
     height: 100%;
@@ -95,9 +97,10 @@
     align-items: center;
     gap: 10px;
     background-color: white;
-    z-index: 2;
+    z-index: 3;
     padding-right:15px;
     height: 100%;
+    border: 5px solid white;
 }
 
 .headerOptions img{
@@ -188,6 +191,7 @@
 .headerMobileOptions{
     display: flex;
     align-items: center;
+    gap: 5px;
 }
 .headerMobileOptions img{
     width: 28px;

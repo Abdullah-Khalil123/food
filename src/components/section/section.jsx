@@ -5,17 +5,12 @@ export const Section = ({section,setActiveUnit}) => {
   const secRef = useRef(null)
   useEffect(()=>{
     const handleScroll = () =>{
-      if(window.scrollY >= secRef.current.offsetTop - 180){
-        setActiveUnit(prevState => ({
-          previous: prevState.current,
-          current: section.title,
-        }))
+      const offset = window.innerWidth<600 ? 260 : 180;
+      if(window.scrollY >= secRef.current.offsetTop - offset){
+        setActiveUnit(section.title)
       }
       if(window.scrollY==0){
-        setActiveUnit(prevState => ({
-          previous: prevState.current,
-          current: 'All',
-        }))
+        setActiveUnit('All')
       }
     }
     window.addEventListener("scroll",handleScroll);

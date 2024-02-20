@@ -8,7 +8,7 @@ import { sections } from "@/components/hardCodeMenuItems";
 import { useEffect, useState } from "react";
 export default function Home() {
   
-  const [activeUnit, setActiveUnit] = useState({previous:'',current:'All'});
+  const [activeUnit, setActiveUnit] = useState('All');
   const [isSearchOpen,setSearchStatus]=useState(false)
   const [isMobile,setMobileStatus]=useState(false);
   useEffect(()=>{
@@ -19,35 +19,33 @@ export default function Home() {
     const handleResize=()=>{
       setMobileStatus(window.innerWidth<600)
     }
-    handleResize()
+    handleResize();
     window.addEventListener("resize",handleResize)
     return ()=>window.removeEventListener("resize",handleResize)
   },[])
   const handleClick = (unit) => {
+
+    const offset = isMobile? 251 : 177.6;
     if(unit=='All'){
       const container = document.getElementById('Burger');
       if(container){
         window.scrollTo({
-          top:container.offsetTop - 177.6*2,
+          top:container.offsetTop - offset*2,
           behavior:'smooth',
         })
       }
     }
     else{
       const container = document.getElementById(unit);
+      
       if (container) {
         window.scrollTo({
-          top:container.offsetTop - 177.6,
+          top:container.offsetTop - offset,
           behavior:'smooth'
         })
       }
     } 
   };
-
-  useEffect(()=>{
-    console.log("Active: "+activeUnit.current+" Previous: "+activeUnit.previous)
-  },[activeUnit.current])
-
   return (
     <>
     <Header 
