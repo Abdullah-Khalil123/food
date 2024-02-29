@@ -70,7 +70,7 @@ function HeaderLocation({}) {
 }
 
 function HeaderProfileLogo({}) {
-  return (<Image src={`/vercel.svg`} width={300} height={300} alt='' />);
+  return (<Image src={`${nextConfig.basePath}/vercel.svg`} width={300} height={300} alt='' />);
 }
 
 function HeaderOptions({}) {
